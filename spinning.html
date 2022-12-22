@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spinning Border Animation</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+          "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3",
+          "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(7, 7, 7);
+      }
+
+      svg {
+        font-size: 36px;
+        color: rgb(93, 93, 93);
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          rotate: 0deg;
+        }
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      .card-outer {
+        padding: 12px;
+        overflow: hidden;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+        /* background: rgb(255, 255, 255); */
+
+        position: relative;
+        z-index: 1;
+      }
+
+      .card-inner {
+        width: 300px;
+        height: 350px;
+        background: rgb(14, 14, 14);
+        padding: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        position: relative;
+        z-index: 3;
+      }
+
+      .spinning-border {
+        /* GRADIENT */
+        background: linear-gradient(
+          90deg,
+          rgb(0, 204, 255),
+          rgb(0, 64, 255),
+          rgb(197, 9, 244),
+          rgb(194, 11, 11)
+        );
+        /* REPEATING */
+        /* background: repeating-conic-gradient(
+          rgb(0, 0, 0) 0%,
+          rgb(0, 0, 0) 10%,
+          rgb(146, 42, 243) 20%
+        ); */
+        /* SHIMMER  */
+        /* background: conic-gradient(
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.75) 20%,
+          rgba(255, 255, 255, 0) 40%
+        ); */
+
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        scale: 1.75;
+
+        animation: spin 5s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-outer">
+      <div class="spinning-border"></div>
+      <div class="card-inner">
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 1024 1024"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
